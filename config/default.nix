@@ -7,7 +7,10 @@
     relativenumber = true;
 
     shiftwidth = 2;
+    sts = 2;
+    tabstop = 4;
 
+    expandtab = true;
     wrap = true;
   };
 
@@ -38,12 +41,26 @@
     lualine.enable = true;
     lazygit.enable = true;
     gitgutter.enable = true;
+    lsp-format = {
+      enable = true;
+      setup = {
+        go = {
+          force = true;
+          order = [
+            "efm"
+            "gopls"
+          ];
+          sync = true;
+        };
+      };
+    };
     lsp = {
       enable = true;
       servers = {
        lua-ls.enable = true;
        dockerls.enable = true;
        gopls.enable = true;
+       nixd.enable = true;
        pylsp.enable = true;
        marksman.enable = true;
        yamlls.enable = true;
@@ -65,32 +82,15 @@
     cmp = {
       enable = true;
       autoEnableSources = true;
-      settings.sources = [
-        {name = "nvim_lsp";}
-        {name = "path";}
-        {name = "buffer";}
-      ];
-      settings.mapping = {
-        "<CR>" = "cmp.mapping.confirm({ select = false })";
-        "<Tab>" = ''
-          cmp.mapping(
-            function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expandable() then
-                luasnip.expand()
-              elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-              elseif check_backspace() then
-                fallback()
-              else
-                fallback()
-              end
-            end,
-            { "i", "s" }
-          )
-        '';
+      settings.snippet = {
+         expand = "function(args) require('luasnip').lsp_expand(args.body) end";
       };
+      settings.sources = [
+        { name = "nvim_lsp"; }
+        { name = "luasnip"; }
+        { name = "path"; }
+        { name = "buffer"; }
+      ];
     };
   };
 }
