@@ -63,6 +63,13 @@
     };
     lsp = {
       enable = true;
+      keymaps.lspBuf = {
+        K = "hover";
+        gD = "references";
+        gd = "definition";
+        gi = "implementation";
+        gt = "type_definition";
+      };
       servers = {
        lua-ls.enable = true;
        dockerls.enable = true;
