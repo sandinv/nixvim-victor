@@ -30,13 +30,11 @@
   ];
 
   highlight = {
-    Comment.fg = "#ff00ff";
-    Comment.bg = "#000000";
     Comment.underline = true;
     Comment.bold = true;
   };
 
-  colorschemes.dracula.enable = true;
+  colorschemes.onedark.enable = true;
   extraPlugins = with pkgs.vimPlugins; [
     {
       plugin = outline-nvim;
