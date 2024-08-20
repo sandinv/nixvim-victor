@@ -17,6 +17,7 @@
   globals.mapleader = " ";
 
   keymaps = [
+    { action = "<cmd>Outline <CR>"; key = "<leader>lS";}
     { action = "<cmd>Telescope live_grep<CR>"; key = "<leader>g";}
     { action = "<cmd>Telescope find_files<CR>"; key = "<leader>ff";}
     { action = "<cmd>Telescope buffers<CR>"; key = "<leader>b";}
