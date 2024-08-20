@@ -20,6 +20,7 @@
     { action = "<cmd>Neotree toggle<CR>"; key = "<leader>e";}
     { action = "<cmd>bnext <CR>"; key = "<S-l>";}
     { action = "<cmd>bprev <CR>"; key = "<S-h>";}
+    { action = "<cmd>LazyGit <CR>"; key = "<leader>gg";}
     { action = "<C-w>p"; key = "<C-h>";}
     { action = "<C-w>w"; key = "<C-l>";}
   ];
@@ -35,6 +36,8 @@
 
   plugins = {
     lualine.enable = true;
+    lazygit.enable = true;
+    gitgutter.enable = true;
     lsp = {
       enable = true;
       servers = {
