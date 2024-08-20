@@ -1,4 +1,4 @@
-{
+{self, pkgs, ...}: {
   # Import all your configuration modules here
   imports = [ ./bufferline.nix ];
 
@@ -36,6 +36,12 @@
   };
 
   colorschemes.dracula.enable = true;
+  extraPlugins = with pkgs.vimPlugins; [
+    {
+      plugin = outline-nvim;
+      config = ''lua require("outline").setup()'';
+    }
+  ];
 
   plugins = {
     lualine.enable = true;
