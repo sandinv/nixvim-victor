@@ -40,6 +40,9 @@
       plugin = outline-nvim;
       config = ''lua require("outline").setup()'';
     }
+    {
+      plugin = vim-hcl;
+    }
   ];
 
   plugins = {
